@@ -1,0 +1,12 @@
+<form class="login">
+    <mat-form-field>
+        <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+    <mat-error *ngIf="invalid">Invalid User</mat-error>
+</form>
