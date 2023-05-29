@@ -42,13 +42,24 @@ def create():
 
 	return get()
 
-@app.route('/', methods = ['PUT'])
-def update():
+@app.route('/<id>', methods = ['PUT'])
+def update(id):
 	data = request.json
 
 	conn = sqliteConnection()
 	cur = conn.cursor()
-	cur.execute(f'update employee set name = {data["name"]}, dob = {data["dob"]}, designation= {data["designation"]}, location = {data["location"]} where id = {data["id"]}')
+	cur.execute(f'update employee set name = ?, dob = ?, designation= ?, location = ? where id = ?',(data["name"], data["dob"], data["designation"], data["location"], id))
+	conn.commit()
+
+	return get()
+
+@app.route('/<id>', methods = ['PUT'])
+def transfer(id):
+	data = request.json
+
+	conn = sqliteConnection()
+	cur = conn.cursor()
+	cur.execute(f'update employee set location = ? where id = ?',(data["location"], id))
 	conn.commit()
 
 	return get()
