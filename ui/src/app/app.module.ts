@@ -31,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeesComponent } from './employees/employees.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { DeleteComponent } from './delete/delete.component';
-import { TransferComponent } from './transfer/transfer.component'
+import { TransferComponent } from './transfer/transfer.component';
+import { LoginComponent } from './login/login.component'
 
 // import { AppService } from './app.service';
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -43,6 +44,7 @@ import { TransferComponent } from './transfer/transfer.component'
     AddEditComponent,
     DeleteComponent,
     TransferComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,

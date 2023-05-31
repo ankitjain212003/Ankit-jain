@@ -21,7 +21,7 @@ export class AddEditComponent {
       this.employeeForm = fb.group({
         id: [data.id],
         name: [data.name, Validators.required],
-        dob: [data.dob, Validators.required],
+        dob: [new Date(data.dob || ""), Validators.required],
         designation: [data.designation, Validators.required],
         location: [data.location, Validators.required]
       })

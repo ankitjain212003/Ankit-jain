@@ -9,6 +9,7 @@ import { AddEditComponent } from '../add-edit/add-edit.component';
 import { DeleteComponent } from '../delete/delete.component';
 import { TransferComponent } from '../transfer/transfer.component';
 import { EmployeesService } from './employees.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -35,6 +36,7 @@ export class EmployeesComponent implements OnInit {
   displayedColumns = ['id', 'name', 'dob', 'designation', 'location', 'Action'];
 
   constructor(
+    private router: Router,
     private matDialog: MatDialog,
     private employeesService: EmployeesService
     ) {
@@ -94,5 +96,10 @@ export class EmployeesComponent implements OnInit {
         this.employeesService.editEmploy(employ).subscribe(employee => this.dataSource.data = employee)
       } 
     });
+  }
+
+  logout(){
+    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    this.router.navigate(['/login'])
   }
 }
